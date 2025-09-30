@@ -1,0 +1,45 @@
+# OS junk
+.DS_Store
+Thumbs.db
+$RECYCLE.BIN/
+Icon?
+
+# Editor
+.vscode/
+.idea/
+*.code-workspace
+
+# Node/yarn cache (in case scripts)
+node_modules/
+yarn.lock
+pnpm-lock.yaml
+package-lock.json
+
+# Python cache (scripts)
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Archives
+*.zip
+*.tar
+*.gz
+
+# Temporary
+~$*
+*.tmp
+*.log
+
+# Git
+.git-*
+
+# macOS metadata
+.AppleDouble
+.LSOverride
+
+# Windows metadata
+Desktop.ini
+
+# VS Code settings in docs only if wanted
+# docs/.vscode/
