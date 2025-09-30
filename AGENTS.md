@@ -5,8 +5,6 @@ date: 2025-09-30
 project: Project Collab Preview
 ---
 
-# Workspace Agent Instructions
-
 This repository uses the t-0 documentation framework. The authoritative docs live under `docs/framework_docs/`.
 
 - Start with `FRAMEWORK_CONTRACT.md` and `AOP.md`.
