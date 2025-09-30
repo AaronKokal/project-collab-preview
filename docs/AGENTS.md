@@ -7,7 +7,7 @@ project: Project Collab Preview
 
 # Workspace Agent Instructions
 
-This repository uses the t-0 documentation framework. The authoritative docs live under `docs/framework/docs/framework_docs/`.
+This repository uses the t-0 documentation framework. The authoritative docs live under `docs/framework_docs/`.
 
 - Start with `FRAMEWORK_CONTRACT.md` and `AOP.md`.
 - During each session, load and comply with `AGENT_OPERATING_PROCEDURE.md`.
@@ -17,7 +17,7 @@ This repository uses the t-0 documentation framework. The authoritative docs liv
 
 - Project name: Project Collab Preview
 - Primary docs location: `docs/`
-- Framework path: `docs/framework/`
+- Framework path: `docs/`
 
 ## Mode and stop rules
 
@@ -25,4 +25,4 @@ Follow the AOP-defined mode detection and stop rules. If the framework is missin
 
 ## Logging
 
-Record notable actions, assumptions, and deviations in `docs/framework/docs/project_docs/project_logs.md`.
+Record notable actions, assumptions, and deviations in `docs/project_docs/project_logs.md`.
