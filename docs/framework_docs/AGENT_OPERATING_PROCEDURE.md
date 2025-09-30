@@ -8,24 +8,30 @@ categories: [Framework]
 ---
 
 Purpose
+
 - Provide a deterministic, context-aware way for an IDE-embedded agent to act.
 - Keep behavior stable with clear stop rules and quoted anchors.
 
 Read Me First
+
 - Upstream contract: Workspace-level agent instructions (e.g., `AGENTS.md`) take precedence. They should direct you here; confirm there is no conflict before proceeding.
 - Invocation: When a user says "see AOP" (or similar), read this document and execute the procedure below. Treat this file as the authoritative operating procedure.
 - The correct mode depends on project context. Before acting, detect the mode and follow its path. When in doubt, ask the user to confirm the mode.
 
 Modes & Entry Conditions
+
 - Mode A — Fresh/Initializing or Onboarding
   - Signal: Framework just copied; `docs/project_docs/` exists but core docs are empty or missing.
   - Also: Repo was just cloned and already contains the framework; the structure exists, but the user and agent need context.
   - Actions:
     - Inform user about `docs/framework_docs/SETUP_GUIDE.md` (Fresh Start path) and request decisions where required. Offer short summaries of the Framework Contract, AOP, and Document Maintenance.
+    - Confirm the Target Structure (see Setup Guide) and propose creating any missing directories under `docs/`.
+    - Ask the user where `AGENTS.md` should live (repo root or `docs/`), explain its role briefly, and create/move it using `docs/framework_docs/agents.template.md` if missing.
     - Create minimal skeletons in `docs/project_docs/`: `project_mission.md`, `project_structure.md`, `project_logs.md`, `project_tasks.md`, plus `project_stack.md`.
     - Seed Mission with placeholders for Intent, Invariants (MUST/MUST NOT), Non‑Goals.
     - Add initial Logs entry describing the baseline and next step. Seed Tasks with one Current and up to two Next items.
     - Produce a short plan and ask for confirmation before major structure decisions.
+    - At end of setup, run Verification & Cleanup from the Setup Guide to ensure the structure matches the agreed Target Structure and remove/archival of any staging folders with user confirmation.
 
 - Mode B — Migrating an Existing Project (framework deployed into a mature repo)
   - Signal: Codebase and structure exist; framework docs recently added or incomplete.
@@ -50,6 +56,7 @@ Modes & Entry Conditions
   - Actions: Update Tasks (DONE/BLOCKED; link Logs/PRs). Add a short Logs entry for any decision made. Ensure Structure reflects any tree change. Prepare and push a concise commit.
 
 Deterministic Warm‑Up (Mode C baseline)
+
 1) Mission — Read `docs/project_docs/project_mission.md`.
 2) Structure — Read `docs/project_docs/project_structure.md`; restate Directory Intents, Routing Rules, and Aliases.
 3) Logs — Read the last 7 days (or ~15 entries) of `docs/project_docs/project_logs.md`; list key Decisions with anchors.
@@ -58,6 +65,7 @@ Deterministic Warm‑Up (Mode C baseline)
 6) Deep Dives — If referenced by Tasks/Logs/commits and clearly relevant to current tasks, read only those under `docs/deep_dives/` and capture their Status and Summary.
 
 Rules of Engagement
+
 - Plan Rule: Every proposed action must cite ≥1 anchor from Mission/Structure/Logs/Tasks or a referenced Deep Dive.
 - Placement Rule: For each new/changed file, quote the relevant Structure rule in `docs/project_docs/project_structure.md` . If no rule exists, propose one.
 - Precedence: Workspace Agent Instructions → `ORG_CONTEXT` → Mission → Structure → Logs → Tasks → Deep Dives → README → code comments (see `FRAMEWORK_CONTRACT.md`).
@@ -68,12 +76,14 @@ Rules of Engagement
 - Output Contract: Produce a short ephemeral plan and include the exact anchors you are obeying. For code/doc changes, prepare a clean commit referencing anchors (WHY/REFS/IMPACT).
 
 Maintenance & Hygiene
+
 - Keep docs machine‑parsable and human‑readable; see `docs/framework_docs/DOCUMENT_MAINTENANCE.md`.
 - Use MUST/MUST NOT language for enforceable rules in Mission and Structure.
 - Logs are immutable history; reversals are new entries with links.
 - Cap Tasks “Later” list (~6) to avoid backlog bloat; promote to Deep Dives when research grows.
 
 Commit/PR Guidance (no fixed template)
+
 - Commits should explain WHY the change is needed (tie to Mission/Logs/Tasks), include references when relevant (e.g., log/task/deep‑dive anchors), and briefly note impact (dirs, size, operational effects).
 - PRs should ensure docs match changes: update Structure if placement changed, add Logs entries for significant reversals/decisions, and link closed Tasks.
 
@@ -91,4 +101,5 @@ Compatibility Notes (v1.1 ↔ v1.2)
   - v1.1’s `SYSTEM_BLUEPRINT.md` (e.g., Docker policy) may move to `ORG_CONTEXT.md` or a Deep Dive. Keep references minimal unless required by the org.
 
 Escalation
+
 - If any ambiguity remains after mode detection, ask the user to select Mode A/B/C/D/E and proceed accordingly.
